@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+
+    <form action="submit.html">
+        School: <input type="text" name="school">
+        <button type="submit">Save</button>
+    </form>
+
+    <script>
+        var form = document.querySelector("form");
+
+        form.addEventListener("submit", function(event) {    // 'form' is an array-like element
+            console.log("Saving value", form.elements);      // that can be traversed like an object
+            event.preventDefault();
+        })
+    </script>
+
+
+</body>
+</html>
