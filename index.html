@@ -2,9 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <title>Demo</title>
 </head>
 <body>
+
+
+
+
 
     <form action="submit.html">
         School: <input type="text" name="school">
@@ -12,12 +17,17 @@
     </form>
 
     <script>
-        var form = document.querySelector("form");
+        // var form = document.querySelector("form");
+        //
+        // form.addEventListener("submit", function(event) {    // 'form' is an array-like element
+        //     console.log("Saving value", form.elements);      // that can be traversed like an object
+        //     event.preventDefault();
+        // })
 
-        form.addEventListener("submit", function(event) {    // 'form' is an array-like element
-            console.log("Saving value", form.elements);      // that can be traversed like an object
-            event.preventDefault();
-        })
+        $('form').on('submit', function(e) {
+            console.log("saving value", this.elements.school.value);    // val() attempted in class instead of 'value'
+            e.preventDefault();                                         // but since we're accessing vanilla JavaScript
+        })                                                              // we need to use 'value'
     </script>
 
 
